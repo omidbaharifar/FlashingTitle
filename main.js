@@ -1,16 +1,9 @@
-let iconHref = document.querySelector("link[rel*='icon']").href,
-    icon = document.querySelector("link[rel*='icon']"),
+let icon = document.querySelector("link[rel*='icon']"),
+    iconHref = icon.href,
     pageTitle = document.title;
+let newIcon = "letter.ico";
 
 setInterval(() => {
-    if (document.title === pageTitle) {
-
-        document.title = "1 پیام جدید"; //add your message instead of پیام جدید 1
-
-        icon.href = "#"; //add second image href instead of #
-        
-    } else {
-        document.title = pageTitle;
-        icon.href = iconHref;
-    }
+    document.title = document.title == pageTitle ? "1 پیام جدید" : pageTitle;
+    icon.href = document.title == pageTitle ? newIcon : iconHref;
 }, 1000);
